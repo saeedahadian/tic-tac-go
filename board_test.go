@@ -42,3 +42,20 @@ func TestInitializedCellHasCorrectIndices(t *testing.T) {
 		}
 	}
 }
+
+func FuzzInitializeBoardWithDifferentSizes(f *testing.F) {
+	testcases := []int{-3, 0, 5}
+	for _, tc := range testcases {
+		f.Add(tc)
+	}
+	f.Fuzz(func(t *testing.T, size int){
+		_, err := NewBoard(size)
+		if size > 0 && err != nil {
+			t.Errorf("Board should be created successfully with given size: %d", size)
+		}
+
+		if size <= 0 && err == nil {
+			t.Errorf("Board should have a positive size. Given %d", size)
+		}
+	})
+}
