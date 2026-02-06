@@ -45,7 +45,7 @@ func (b *Board) Print() {
 }
 
 func NewBoard(size int) (*Board, error) {
-	if size < 0 {
+	if size <= 0 {
 		return nil, BoardSizeIsNegative
 	}
 
