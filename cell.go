@@ -16,6 +16,7 @@ func (m *Mark) Print() {
 const (
 	X Mark = iota
 	O
+	Empty
 )
 
 type Cell struct {
@@ -33,6 +34,10 @@ func (c *Cell) YPos() int {
 
 func (c *Cell) isMarked() bool {
 	return c.Val != nil
+}
+
+func (c *Cell) isEmpty() bool {
+	return c.Val == nil
 }
 
 func (c *Cell) isX() bool {

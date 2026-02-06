@@ -2,6 +2,14 @@ package main
 
 import (
 	"errors"
+	"fmt"
+	"strings"
+)
+
+const (
+	XUnicode = "\u274c"
+	OUnicode = "\u2b55"
+	EmptyUnicode = "\u26aa"
 )
 
 var (
@@ -11,6 +19,29 @@ var (
 type Board struct {
 	Size  int
 	Cells []*Cell
+}
+
+func (b *Board) Print() {
+	var output []string
+	for i := range len(b.Cells) {
+		if i > 0 && (i % b.Size == 0)  {
+			output = append(output, "\n")
+		}
+
+		if b.Cells[i].Val == nil {
+			output = append(output, EmptyUnicode)
+			continue
+		}
+
+		switch *b.Cells[i].Val {
+		case X:
+			output = append(output, XUnicode)
+		case O:
+			output = append(output, OUnicode)
+		}
+	}
+	
+	fmt.Println(strings.Join(output, ""))
 }
 
 func NewBoard(size int) (*Board, error) {

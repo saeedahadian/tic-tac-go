@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 )
 
 func main() {
 	board := initGameBoard()
-	fmt.Printf("%v\n", board)
+	board.Print()
 }
 
 func initGameBoard() *Board {
