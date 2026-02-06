@@ -2,6 +2,8 @@
 
 This is a simple implementation of the famous tic-tac-toe game in the Go programming language. This is done only for learning purposes.
 
+**IMPORTANT NOTE:** This is 100% human-written code! Not a single variable in this code is written by any Agentic model.
+
 # The Definition of the Game
 
 The game implemented here adheres to the following design.
