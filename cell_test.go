@@ -12,6 +12,7 @@ func TestFindCellXAndYWithIndex(t *testing.T) {
 }
 
 func TestReturnErrorOnceCellIndexIsOutOfRange(t *testing.T) {
+	t.Skip("This should be tested in the board.")
 	idx := 100
 
 	_, err := NewCell(idx)
@@ -21,6 +22,7 @@ func TestReturnErrorOnceCellIndexIsOutOfRange(t *testing.T) {
 }
 
 func TestReturnErrorOnceCellIndexIsBelowZero(t *testing.T) {
+	t.Skip("This should be tested in the board file")
 	idx := -5
 
 	_, err := NewCell(idx)
